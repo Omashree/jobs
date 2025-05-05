@@ -10,10 +10,11 @@ const utc = require('dayjs/plugin/utc');
 const port = 3000;
 
 const db = mysql.createConnection({
-  host: 'localhost',
+  host: '127.0.0.1',
   user: 'root',
   password: '1234',
-  database: 'job_admin_db'
+  database: 'job_admin_db',
+  port: 3306
 });
 
 db.connect(err => {
