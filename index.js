@@ -8,13 +8,15 @@ const relativeTime = require('dayjs/plugin/relativeTime');
 const duration = require('dayjs/plugin/duration');
 const utc = require('dayjs/plugin/utc');
 const port = 3000;
+const { URL } = require('url');
+const dbUrl = new URL(process.env.DATABASE_URL);
 
 const db = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'root',
-  password: '1234',
-  database: 'job_admin_db',
-  port: 3306
+  host: dbUrl.hostname,
+  user: dbUrl.username,
+  password: dbUrl.password,
+  database: dbUrl.pathname.slice(1),
+  port: dbUrl.port
 });
 
 db.connect(err => {
