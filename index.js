@@ -7,6 +7,7 @@ const dayjs = require('dayjs');
 const relativeTime = require('dayjs/plugin/relativeTime');
 const duration = require('dayjs/plugin/duration');
 const utc = require('dayjs/plugin/utc');
+require('dotenv').config();
 const port = 3000;
 const { URL } = require('url');
 
