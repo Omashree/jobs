@@ -9,6 +9,7 @@ const duration = require('dayjs/plugin/duration');
 const utc = require('dayjs/plugin/utc');
 const port = 3000;
 const { URL } = require('url');
+
 const dbUrl = new URL(process.env.DATABASE_URL);
 
 const db = mysql.createConnection({
