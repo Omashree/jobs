@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/logo.png">
+  <title>Jobs</title>
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,301,400,401,500,501,700,701,900,901,1,2&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="navbar_main">
+      <nav>
+        <img id="logo" src="logo.png" alt="Company logo">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Find Jobs</a></li>
+          <li><a href="#">Find Talents</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Testimonials</a></li>
+        </ul>
+        <button id="openModalBtn">Create Jobs</button>
+      </nav>
+    </div>
+
+    <form id="filter-form" method="GET" action="/">
+      <div class="title">
+        <img src="search.png" alt="Search icon">
+        <input type="text" name="job_title" placeholder="Search By Job Title, Role" value="<%= job_title || '' %>"/>
+      </div>
+      <div class="location">
+        <img src="location.png" alt="Location icon">
+        <input type="text" name="location" placeholder="Preferred Location" value="<%= location || '' %>" />
+      </div>
+      <div class="job_type">
+        <img src="person.png" alt="Person icon">
+        <select name="job_type">
+          <option value="">Job type</option>
+          <option value="Full-time" <%= job_type === 'Full-time' ? 'selected' : '' %>>Full-time</option>
+          <option value="Part-time" <%= job_type === 'Part-time' ? 'selected' : '' %>>Part-time</option>
+          <option value="Contract" <%= job_type === 'Contract' ? 'selected' : '' %>>Contract</option>
+          <option value="Internship" <%= job_type === 'Internship' ? 'selected' : '' %>>Internship</option>
+        </select>
+      </div>
+      <div class="salary">
+        <div>
+          <p>Salary Per Month</p>
+          <p>&#8377;1k - &#8377;<%= (max_salary || 1000)/1000 %>k</p>
+        </div>
+        <input id="slider" type="range" name="max_salary" min="1000" max="200000" step="1000" value="<%= max_salary || 1 %>" />
+      </div>
+    </form>
+
+  </header>
+
+  <main>
+      <% jobs.forEach(job => { %>
+        <div class="card" style="--card-index:<%= job.id %>;">
+          <div class="card_head">
+            <div class="logo_frame">
+              <img src="<%= job.company_name.trim() %>.png" alt="Company logo">
+            </div>
+            <p><%= job.time %></p>
+          </div>
+          <p class="card_title"><%= job.job_title %></p>
+          <div class="card_info">
+            <div>
+              <img id="exp" src="exp.png" alt="Experience icon">
+              <p><%= job.min_exp %>-<%= job.max_exp %> yr Exp</p>
+            </div>
+            <div>
+              <img id="onsite" src="onsite.png" alt="Onsite icon">
+              <p><%= job.location_type %></p>
+            </div>
+            <div>
+              <img id="salary" src="salary.png" alt="Salary icon">
+              <p><%= 12*job.max_salary/100000 %>LPA</p>
+            </div>
+          </div>
+          <ul>
+            <% job.job_description.split('\n').forEach(line => { %>
+              <% if (line.trim()) { %>
+                <li><%= line.trim() %></li>
+              <% } %>
+            <% }); %>
+          </ul>
+          <button>Apply Now</button>
+        </div>
+      <% }) %>
+  </main>
+
+  <div id="jobModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModalBtn">&times;</span>
+      <form action="/create" method="POST">
+
+        <p class="form_title">Create Job Opening</p>
+
+        <div class="form">
+          <div>
+            <p><label for="job_title">Job Title</label></p>
+            <input id="job_title" type="text" name="job_title" placeholder="Job Title" required />
+          </div>
+          
+          <div>
+            <p><label for="company_name">Company Name</label></p>
+            <input id="company_name" type="text" name="company_name" placeholder="Amazon, Microsoft, Swiggy" required />
+          </div>
+          
+          <div>
+            <p><label for="location">Location</label></p>
+            <input id="location" type="text" name="location" placeholder="Choose Preferred Location" required />
+          </div>
+          
+          <div>
+            <p><label for="job_type">Job Type</label></p>
+            <select id="job_type" name="job_type" required>
+              <option>Full-time</option>
+              <option>Part-time</option>
+              <option>Contract</option>
+              <option>Internship</option>
+            </select>
+          </div>
+          
+          <div>
+            <p><label for="salary_range">Salary Range</label></p>
+            <input id="salary_range" type="number" name="min_salary" placeholder="&uarr;&darr;&nbsp; &#8377;0" required />
+            <input id="salary_range" type="number" name="max_salary" placeholder="&uarr;&darr;&nbsp; &#8377;12,00,000" required />
+          </div>
+          
+          <div>
+            <p><label for="deadline">Application Deadline</label></p>
+            <input id="deadline" type="date" name="deadline" required />
+          </div>
+          
+          <div class="textarea">
+            <p><label for="job_description">Job Description</label></p>
+            <textarea id="job_description" name="job_description" rows="5" placeholder="Please share a description to let the candidate know more about the job role" required></textarea>
+          </div>
+        </div>
+        
+        <div class="button">
+          <button id="save" type="submit">Save Draft &nbsp;<img src="down.png" alt="Down icon"/></button>
+          <button id="publish" type="submit">Publish &nbsp;<img src="right.png" alt="Right icon"/></button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
