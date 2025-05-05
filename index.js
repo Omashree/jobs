@@ -9,16 +9,12 @@ const duration = require('dayjs/plugin/duration');
 const utc = require('dayjs/plugin/utc');
 require('dotenv').config();
 const port = 3000;
-const { URL } = require('url');
-
-const dbUrl = new URL(process.env.DATABASE_URL);
 
 const db = mysql.createConnection({
-  host: dbUrl.hostname,
-  user: dbUrl.username,
-  password: dbUrl.password,
-  database: dbUrl.pathname.slice(1),
-  port: dbUrl.port
+  host: 'localhost',
+  user: 'root',
+  password: '1234',
+  database: 'job_admin_db',
 });
 
 db.connect(err => {
