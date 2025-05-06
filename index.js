@@ -7,13 +7,15 @@ const dayjs = require('dayjs');
 const relativeTime = require('dayjs/plugin/relativeTime');
 const duration = require('dayjs/plugin/duration');
 const utc = require('dayjs/plugin/utc');
+require('dotenv').config();
 const port = 3000;
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '1234',
-  database: 'job_admin_db'
+  host: process.env.db_host,
+  user: process.env.db_user,
+  password: process.env.db_password,
+  database: process.env.db_database,
+  port: 3306
 });
 
 db.connect(err => {
