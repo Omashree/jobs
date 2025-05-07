@@ -1,5 +1,3 @@
----
-
 # 🧑‍💼 Job Management Admin Interface
 
 A full-stack web application that allows administrators to create and manage job postings. Built with **Node.js**, **Express.js**, **MySQL**, and **EJS**, this platform provides functionality to list, filter, and create job postings through an intuitive admin interface.
