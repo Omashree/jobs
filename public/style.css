@@ -410,6 +410,60 @@ form .button button {
     transition: 0.5s;
 }
 
+#toast {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    visibility: hidden;
+    min-width: 18rem;
+    background-color: #E9FCFA;
+    color: #107066;
+    text-align: center;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border: 0.1rem solid #107066;
+    box-shadow: 0 0.25rem 0.5rem 0 #00000070;
+    transition: visibility 0s, opacity 0.5s linear;
+    opacity: 0;
+    transform: translateX(-50%);
+    position: fixed;
+}
+
+#toast span:first-child {
+    background: #107066;
+    color: #E9FCFA;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+}
+
+#close {
+    color: #aaa;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 2rem;
+}
+
+#progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0.125rem;
+    background: #10706690;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: none;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
 @keyframes fadeInSlide {
     to {
       opacity: 1;

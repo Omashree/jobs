@@ -55,8 +55,8 @@
   </header>
 
   <main>
-      <% jobs.forEach(job => { %>
-        <div class="card" style="--card-index:<%= job.id %>;">
+      <% jobs.forEach((job, index) => { %>
+        <div class="card" style="--card-index:<%= index %>;">
           <div class="card_head">
             <div class="logo_frame">
               <img src="<%= job.company_name.trim() %>.png" alt="Company logo">
@@ -147,7 +147,12 @@
       </form>
     </div>
   </div>
-  
+  <div id="toast">
+      <span>&check;</span>
+      Job Created Successfully
+      <span id="close">&times;</span>
+      <div id="progress"></div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

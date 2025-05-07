@@ -72,6 +72,8 @@ app.get('/', (req, res) => {
     params.push(Number(max_salary));
   }
 
+  sql += ' ORDER BY id DESC';
+
   db.query(sql, params, (err, results) => {
     if (err) throw err;
     const jobsWithTime = results.map(job => ({
@@ -109,7 +111,7 @@ app.post('/create', (req, res) => {
 
   db.query(sql, params, (err) => {
     if (err) throw err;
-    res.redirect('/');
+    res.redirect('/?success=1');
   });
 });
 
