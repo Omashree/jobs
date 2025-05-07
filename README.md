@@ -124,6 +124,7 @@ Visit `http://localhost:3000` in your browser.
 
 ### 🔍 Job List Page
 ![Job List](./assets/job-list-1.png)
+
 ![Job List](./assets/job-list-2.png)
 
 ### 📝 Job Creation Page
