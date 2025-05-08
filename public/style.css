@@ -359,6 +359,11 @@ main {
     width: 99%;
 }
 
+.form .salary_range {
+    display: flex;
+    justify-content: space-between;
+}
+
 .form #salary_range {
     width: 43%;
 }
@@ -554,7 +559,7 @@ form .button button {
     }
 
     .form #salary_range {
-        width: 42%;
+        width: 40%;
     }
 }
 
@@ -641,7 +646,6 @@ form .button button {
         scroll-behavior: smooth;
     }
       
-
     main {
         margin: 1rem;
         grid-template-columns: repeat(1, 1fr);
@@ -665,7 +669,7 @@ form .button button {
     }
     
     .form #salary_range {
-        width: 42.5%;
+        width: 42%;
     }
     
     .form textarea {
@@ -687,7 +691,7 @@ form .button button {
 
 @media (max-width: 376px) {
     .form #salary_range {
-        width: 41.5%;
+        width: 40%;
     }
 
     form .button button {
@@ -723,7 +727,7 @@ form .button button {
     }
     
     .form #salary_range {
-        width: 40%;
+        width: 38%;
     }
     
     .form textarea {
