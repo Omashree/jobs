@@ -22,7 +22,6 @@ header {
     top: 1.3125rem;
     margin: auto;
     border-radius: 7.625rem;
-    border-width: 1px;
     background-color: #FFFFFF;
     border: 1px solid #FCFCFC;
     box-shadow: 0 0 1.25rem 0 #7F7F7F26;
@@ -556,5 +555,196 @@ form .button button {
 
     .form #salary_range {
         width: 42%;
+    }
+}
+
+@media (max-width: 426px) {
+
+    header {
+        height: auto;
+    }
+
+    .navbar_main {
+        width: 90%;
+        top: 0;
+        padding: 0 1rem;
+        background: #FFFFFF;
+        box-shadow: none;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .navbar_main ul {
+        display: none;
+    }
+    
+    #openModalBtn {
+        width: 8rem;
+    }
+
+    #filter-form {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 0 1rem;
+        gap: 1rem;
+        background: #fff;
+        border: 1px solid #ddd;
+        width: 100%;
+        box-sizing: border-box;
+        height: auto;
+    }
+    
+    #filter-form > div {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        border: none;
+    }
+    
+    #filter-form input[type="text"],
+    #filter-form select,
+    #filter-form input[type="range"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%;
+    }
+
+    .salary div {
+        margin: 0;
+    }
+
+    #filter-form select {
+        width: 10rem;
+    }
+
+    #filter-form input[type="range"] {
+        margin: 0;
+        width: 90%;
+    }
+
+    #filter-form #text {
+        display: none;
+    }
+    
+    #filter-form::-webkit-scrollbar {
+        display: none;
+    }
+
+    #filter-form {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+    }
+      
+
+    main {
+        margin: 1rem;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .modal-content {
+        margin: 0 auto;
+        padding: 1rem;
+        width: 100%;
+        overflow-y: auto;
+    }
+
+    .form {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .form select {
+        width: 99.6%;
+    }
+    
+    .form #salary_range {
+        width: 42.5%;
+    }
+    
+    .form textarea {
+        width: 93%;
+    }
+
+    .form .textarea {
+        grid-column: auto;
+    }
+
+    form .button button {
+        padding: 1rem 2rem;
+    }
+
+    #publish {
+        padding: 1rem 2.5rem;
+    }
+}
+
+@media (max-width: 376px) {
+    .form #salary_range {
+        width: 41.5%;
+    }
+
+    form .button button {
+        padding: 0.875rem 1rem;
+    }
+
+    #publish {
+        padding: 0.875rem 1.5rem;
+    }
+}
+
+@media (max-width: 321px) {
+
+    .card_info {
+        margin-right: 0;
+    }
+
+    .close {
+        right: 1.3rem;
+        top: 1rem;
+    }
+
+    .form_title {
+        text-align: start;
+    }
+
+    .form input {
+        width: 91.5%;
+    }
+
+    .form select {
+        width: 100%;
+    }
+    
+    .form #salary_range {
+        width: 40%;
+    }
+    
+    .form textarea {
+        width: 91.5%;
+    }
+
+    .form .textarea {
+        grid-column: auto;
+    }
+
+    form .button {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    form .button button {
+        padding: 1rem;
+    }
+
+    #publish {
+        padding: 1rem;
+        margin-top: 1rem;
     }
 }

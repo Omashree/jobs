@@ -45,7 +45,7 @@
       </div>
       <div class="salary">
         <div>
-          <p>Salary Per Month</p>
+          <p id="text">Salary Per Month</p>
           <p>&#8377;1k - &#8377;<%= (max_salary || 1000)/1000 %>k</p>
         </div>
         <input id="slider" type="range" name="max_salary" min="1000" max="200000" step="1000" value="<%= max_salary || 1 %>" />
